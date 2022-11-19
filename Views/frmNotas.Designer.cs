@@ -46,6 +46,7 @@
             this.btnCadCli = new System.Windows.Forms.Button();
             this.txtInfoNota = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnGerarPdf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotas)).BeginInit();
             this.grpCadNota.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdProd)).BeginInit();
@@ -59,7 +60,7 @@
             this.btnCadastrarNota.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnCadastrarNota.Location = new System.Drawing.Point(6, 523);
             this.btnCadastrarNota.Name = "btnCadastrarNota";
-            this.btnCadastrarNota.Size = new System.Drawing.Size(230, 33);
+            this.btnCadastrarNota.Size = new System.Drawing.Size(170, 33);
             this.btnCadastrarNota.TabIndex = 38;
             this.btnCadastrarNota.Text = "Cadastrar nota";
             this.btnCadastrarNota.UseVisualStyleBackColor = true;
@@ -71,9 +72,9 @@
             this.btnEditarNota.Enabled = false;
             this.btnEditarNota.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEditarNota.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btnEditarNota.Location = new System.Drawing.Point(239, 523);
+            this.btnEditarNota.Location = new System.Drawing.Point(180, 523);
             this.btnEditarNota.Name = "btnEditarNota";
-            this.btnEditarNota.Size = new System.Drawing.Size(230, 33);
+            this.btnEditarNota.Size = new System.Drawing.Size(170, 33);
             this.btnEditarNota.TabIndex = 37;
             this.btnEditarNota.Text = "Editar nota";
             this.btnEditarNota.UseVisualStyleBackColor = true;
@@ -85,9 +86,9 @@
             this.btnExcluiNota.Enabled = false;
             this.btnExcluiNota.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnExcluiNota.ForeColor = System.Drawing.Color.Red;
-            this.btnExcluiNota.Location = new System.Drawing.Point(475, 523);
+            this.btnExcluiNota.Location = new System.Drawing.Point(356, 523);
             this.btnExcluiNota.Name = "btnExcluiNota";
-            this.btnExcluiNota.Size = new System.Drawing.Size(230, 33);
+            this.btnExcluiNota.Size = new System.Drawing.Size(170, 33);
             this.btnExcluiNota.TabIndex = 36;
             this.btnExcluiNota.Text = "Excluir nota";
             this.btnExcluiNota.UseVisualStyleBackColor = true;
@@ -291,11 +292,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Observações:";
             // 
+            // btnGerarPdf
+            // 
+            this.btnGerarPdf.AutoSize = true;
+            this.btnGerarPdf.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGerarPdf.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnGerarPdf.Location = new System.Drawing.Point(531, 523);
+            this.btnGerarPdf.Name = "btnGerarPdf";
+            this.btnGerarPdf.Size = new System.Drawing.Size(170, 33);
+            this.btnGerarPdf.TabIndex = 39;
+            this.btnGerarPdf.Text = "Gerar PDF";
+            this.btnGerarPdf.UseVisualStyleBackColor = true;
+            this.btnGerarPdf.Click += new System.EventHandler(this.btnGerarPdf_Click);
+            // 
             // frmNotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 729);
+            this.Controls.Add(this.btnGerarPdf);
             this.Controls.Add(this.btnCadastrarNota);
             this.Controls.Add(this.btnEditarNota);
             this.Controls.Add(this.btnExcluiNota);
@@ -339,5 +354,6 @@
         private Label label1;
         private NumericUpDown txtIdProd;
         private NumericUpDown txtIdCli;
+        private Button btnGerarPdf;
     }
 }

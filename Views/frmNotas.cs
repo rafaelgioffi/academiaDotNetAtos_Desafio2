@@ -1,4 +1,6 @@
-﻿using MiniERP.Classes;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using MiniERP.Classes;
 using System.Data;
 
 namespace MiniERP.Views
@@ -120,16 +122,16 @@ namespace MiniERP.Views
 
             //tratar a data e hora
             DateTime datahora = DateTime.Now;
-            string datahoraFormat = $"{datahora.Day}-{datahora.Month}-{datahora.Year} {datahora.Hour}:{datahora.Minute}:{datahora.Second}";            
+            string datahoraFormat = $"{datahora.Day}-{datahora.Month}-{datahora.Year} {datahora.Hour}:{datahora.Minute}:{datahora.Second}";
 
             //criar a primary key...
             string NotId = datahora.ToString();
-            NotId = NotId.Replace("/","");
-            NotId = NotId.Replace(":","");
-            NotId = NotId.Replace(" ","");
-            NotId += cliId.ToString() + prodId.ToString();                     
+            NotId = NotId.Replace("/", "");
+            NotId = NotId.Replace(":", "");
+            NotId = NotId.Replace(" ", "");
+            NotId += cliId.ToString() + prodId.ToString();
 
-            if(cliId <= 0)
+            if (cliId <= 0)
             {
                 MessageBox.Show("O campo 'ID do Cliente' é de preenchimento obrigatório");
                 txtIdCli.Focus();
@@ -169,5 +171,75 @@ namespace MiniERP.Views
             frmMiniErp frmMini = new frmMiniErp();
             frmMini.Show();
         }
+
+        private void btnGerarPdf_Click(object sender, EventArgs e)
+        {
+            btnGerarPdf.Enabled = false;
+            btnGerarPdf.Text = "Gerando PDF...";
+
+            DateTime data = DateTime.Now;
+            string novaData = $"{data.Day}-{data.Month}-{data.Year}";
+
+            //SaveFileDialog save = new SaveFileDialog();            
+            //save.Filter = "PDF (*.pdf)|*.pdf";
+            //save.FileName = "Nota Fiscal " + novaData + ".pdf";
+            //bool error = false;
+            //if(save.ShowDialog() == DialogResult.OK)
+            //{
+            //    if(File.Exists(save.FileName))
+            //    {
+            //        try
+            //        {
+            //            File.Delete(save.FileName);
+            string cam = Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)) + "\\";
+            string arq = cam + "Nota Fiscal " + novaData + ".pdf";
+
+            FileStream pdf = new FileStream(arq, FileMode.Create);
+            Document doc = new Document(PageSize.A4);
+            PdfWriter escPdf = PdfWriter.GetInstance(doc, pdf);
+
+            string dados = "";
+
+            for (int i = 0; i < dgvNotas.RowCount; i++)
+            {
+                Paragraph paragrafo = new Paragraph(dados, new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 14, (int)System.Drawing.FontStyle.Bold));
+                paragrafo.Alignment = Element.ALIGN_LEFT;
+                paragrafo.Add($"Nota Fiscal {dgvNotas.Rows[i].Cells[0].Value}\n");
+
+                paragrafo.Font = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 14);
+                paragrafo.Alignment = Element.ALIGN_JUSTIFIED;
+                paragrafo.Add($"Observações: {dgvNotas.Rows[i].Cells[1].Value}\n");
+            
+                paragrafo.Font = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 14);
+                paragrafo.Alignment = Element.ALIGN_LEFT;
+                paragrafo.Add($"Gerado as {dgvNotas.Rows[i].Cells[2].Value}\n");
+            
+                paragrafo.Font = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 14);
+                paragrafo.Alignment = Element.ALIGN_LEFT;
+                paragrafo.Add($"ID do Cliente: {dgvNotas.Rows[i].Cells[3].Value}\n");
+            
+                paragrafo.Font = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 14);
+                paragrafo.Alignment = Element.ALIGN_LEFT;
+                paragrafo.Add($"ID do Produto: {dgvNotas.Rows[i].Cells[4].Value}\n\n");      
+            
+                doc.Open();
+                doc.Add(paragrafo);
+            }
+
+            doc.Close();
+            MessageBox.Show($"Relatório gerado com sucesso em {arq}!");
+            btnGerarPdf.Text = "Gerar PDF";
+            btnGerarPdf.Enabled = true;
+            //}
+            //catch (IOException ioex)
+            //{
+            //    error = true;
+            //    MessageBox.Show("Falha ao salvar o arquivo. Verifique se você possui permissão na pasta antes de gerar o relatório");
+            //}
+            //}               
+
+        }
+
+
     }
 }
