@@ -77,16 +77,16 @@ namespace MiniERP.Views
             frmEditNot nota = new frmEditNot();
             nota.txtIdNot.Text = dgvNotas.SelectedRows[0].Cells[0].Value.ToString();
             nota.txtInfoNota.Text = dgvNotas.SelectedRows[0].Cells[1].Value.ToString();
-            if (dgvNotas.SelectedRows[0].Cells[3].Value == "Compra")
+            if (dgvNotas.SelectedRows[0].Cells[3].Value.ToString() == "Compra")
             {
                 nota.rdCompra.Checked = true;
             }
-            else if (dgvNotas.SelectedRows[0].Cells[3].Value == "Venda")
+            else if (dgvNotas.SelectedRows[0].Cells[3].Value.ToString() == "Venda")
             {
                 nota.rdVenda.Checked = true;
             }
-            nota.txtIdCli.Text = dgvNotas.SelectedRows[0].Cells[3].Value.ToString();
-            nota.txtIdProd.Text = dgvNotas.SelectedRows[0].Cells[4].Value.ToString();
+            nota.txtIdCli.Text = dgvNotas.SelectedRows[0].Cells[4].Value.ToString();
+            nota.txtIdProd.Text = dgvNotas.SelectedRows[0].Cells[5].Value.ToString();
 
             nota.Show();
             this.Hide();

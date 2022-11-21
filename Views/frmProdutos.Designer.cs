@@ -367,6 +367,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.grpCadProd);
             this.Name = "frmProdutos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produtos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmProdutos_FormClosed);
             this.grpCadProd.ResumeLayout(false);
