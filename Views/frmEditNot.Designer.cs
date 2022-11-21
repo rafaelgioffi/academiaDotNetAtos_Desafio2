@@ -38,12 +38,15 @@
             this.btnEdtNot = new System.Windows.Forms.Button();
             this.txtIdCli = new System.Windows.Forms.TextBox();
             this.txtIdProd = new System.Windows.Forms.TextBox();
+            this.rdCompra = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.rdVenda = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(198, 47);
+            this.label3.Location = new System.Drawing.Point(494, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 15);
             this.label3.TabIndex = 21;
@@ -52,7 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1, 47);
+            this.label2.Location = new System.Drawing.Point(297, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 15);
             this.label2.TabIndex = 20;
@@ -121,7 +124,7 @@
             // 
             // txtIdCli
             // 
-            this.txtIdCli.Location = new System.Drawing.Point(85, 39);
+            this.txtIdCli.Location = new System.Drawing.Point(381, 43);
             this.txtIdCli.MaxLength = 60;
             this.txtIdCli.Name = "txtIdCli";
             this.txtIdCli.ReadOnly = true;
@@ -130,18 +133,54 @@
             // 
             // txtIdProd
             // 
-            this.txtIdProd.Location = new System.Drawing.Point(288, 44);
+            this.txtIdProd.Location = new System.Drawing.Point(584, 48);
             this.txtIdProd.MaxLength = 60;
             this.txtIdProd.Name = "txtIdProd";
             this.txtIdProd.ReadOnly = true;
             this.txtIdProd.Size = new System.Drawing.Size(116, 23);
             this.txtIdProd.TabIndex = 30;
             // 
+            // rdCompra
+            // 
+            this.rdCompra.AutoSize = true;
+            this.rdCompra.Enabled = false;
+            this.rdCompra.Location = new System.Drawing.Point(85, 44);
+            this.rdCompra.Name = "rdCompra";
+            this.rdCompra.Size = new System.Drawing.Size(68, 19);
+            this.rdCompra.TabIndex = 33;
+            this.rdCompra.TabStop = true;
+            this.rdCompra.Text = "Compra";
+            this.rdCompra.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(46, 46);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(33, 15);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Tipo:";
+            // 
+            // rdVenda
+            // 
+            this.rdVenda.AutoSize = true;
+            this.rdVenda.Enabled = false;
+            this.rdVenda.Location = new System.Drawing.Point(162, 44);
+            this.rdVenda.Name = "rdVenda";
+            this.rdVenda.Size = new System.Drawing.Size(57, 19);
+            this.rdVenda.TabIndex = 31;
+            this.rdVenda.TabStop = true;
+            this.rdVenda.Text = "Venda";
+            this.rdVenda.UseVisualStyleBackColor = true;
+            // 
             // frmEditNot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 201);
+            this.Controls.Add(this.rdCompra);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.rdVenda);
             this.Controls.Add(this.txtIdProd);
             this.Controls.Add(this.txtIdCli);
             this.Controls.Add(this.btnCancelNot);
@@ -174,5 +213,8 @@
         public TextBox txtIdNot;
         public TextBox txtIdCli;
         public TextBox txtIdProd;
+        private Label label5;
+        public RadioButton rdCompra;
+        public RadioButton rdVenda;
     }
 }

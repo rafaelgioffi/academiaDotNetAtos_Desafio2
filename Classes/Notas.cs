@@ -13,6 +13,7 @@ namespace MiniERP.Classes
         public string NotId;
         public string NotInfo;
         public string NotDataHora;
+        public string NotTipo;
         public int CliId;
         public int ProdId;
 
@@ -27,17 +28,19 @@ namespace MiniERP.Classes
             cmd.Connection = conn;
             cmd.Transaction = trans;
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "INSERT INTO Notas VALUES (@NotId, @NotInfo, @NotDataHora, @CliId, @ProdId)";
+            cmd.CommandText = "INSERT INTO Notas VALUES (@NotId, @NotInfo, @NotDataHora, @NotTipo, @CliId, @ProdId)";
             cmd.Parameters.Add("@NotId", SqlDbType.VarChar);
             cmd.Parameters.Add("@NotInfo", SqlDbType.VarChar);
             cmd.Parameters.Add("@NotDataHora", SqlDbType.VarChar);
+            cmd.Parameters.Add("@NotTipo", SqlDbType.VarChar);
             cmd.Parameters.Add("@CliId", SqlDbType.Int);
             cmd.Parameters.Add("@ProdId", SqlDbType.Int);
             cmd.Parameters[0].Value = NotId;
             cmd.Parameters[1].Value = NotInfo;
             cmd.Parameters[2].Value = NotDataHora;
-            cmd.Parameters[3].Value = CliId;
-            cmd.Parameters[4].Value = ProdId;
+            cmd.Parameters[3].Value = NotTipo;
+            cmd.Parameters[4].Value = CliId;
+            cmd.Parameters[5].Value = ProdId;
 
             try
             {
@@ -145,8 +148,9 @@ namespace MiniERP.Classes
                         this.NotId = reader.GetString(0);
                         NotInfo = reader.GetString(1);
                         NotDataHora = reader.GetString(2);
-                        CliId = reader.GetInt32(3);
-                        ProdId = reader.GetInt32(4);
+                        NotTipo = reader.GetString(3);
+                        CliId = reader.GetInt32(4);
+                        ProdId = reader.GetInt32(5);
 
                         return this;
                     }

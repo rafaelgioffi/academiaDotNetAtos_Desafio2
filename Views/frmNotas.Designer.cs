@@ -37,6 +37,9 @@
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.grpCadNota = new System.Windows.Forms.GroupBox();
+            this.rdCompra = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.rdVenda = new System.Windows.Forms.RadioButton();
             this.txtIdProd = new System.Windows.Forms.NumericUpDown();
             this.txtIdCli = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,7 +65,7 @@
             this.btnCadastrarNota.Name = "btnCadastrarNota";
             this.btnCadastrarNota.Size = new System.Drawing.Size(170, 33);
             this.btnCadastrarNota.TabIndex = 38;
-            this.btnCadastrarNota.Text = "Cadastrar nota";
+            this.btnCadastrarNota.Text = "Emitir nota";
             this.btnCadastrarNota.UseVisualStyleBackColor = true;
             this.btnCadastrarNota.Click += new System.EventHandler(this.btnCadastrarNota_Click);
             // 
@@ -159,6 +162,9 @@
             // 
             // grpCadNota
             // 
+            this.grpCadNota.Controls.Add(this.rdCompra);
+            this.grpCadNota.Controls.Add(this.label4);
+            this.grpCadNota.Controls.Add(this.rdVenda);
             this.grpCadNota.Controls.Add(this.txtIdProd);
             this.grpCadNota.Controls.Add(this.txtIdCli);
             this.grpCadNota.Controls.Add(this.label3);
@@ -176,9 +182,42 @@
             this.grpCadNota.Text = "Cadastro de nova nota fiscal";
             this.grpCadNota.Visible = false;
             // 
+            // rdCompra
+            // 
+            this.rdCompra.AutoSize = true;
+            this.rdCompra.Location = new System.Drawing.Point(89, 67);
+            this.rdCompra.Name = "rdCompra";
+            this.rdCompra.Size = new System.Drawing.Size(68, 19);
+            this.rdCompra.TabIndex = 20;
+            this.rdCompra.TabStop = true;
+            this.rdCompra.Text = "Compra";
+            this.rdCompra.UseVisualStyleBackColor = true;
+            this.rdCompra.CheckedChanged += new System.EventHandler(this.rdCompra_CheckedChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(50, 69);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 15);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Tipo:";
+            // 
+            // rdVenda
+            // 
+            this.rdVenda.AutoSize = true;
+            this.rdVenda.Location = new System.Drawing.Point(166, 67);
+            this.rdVenda.Name = "rdVenda";
+            this.rdVenda.Size = new System.Drawing.Size(57, 19);
+            this.rdVenda.TabIndex = 18;
+            this.rdVenda.TabStop = true;
+            this.rdVenda.Text = "Venda";
+            this.rdVenda.UseVisualStyleBackColor = true;
+            this.rdVenda.CheckedChanged += new System.EventHandler(this.rdVenda_CheckedChanged);
+            // 
             // txtIdProd
             // 
-            this.txtIdProd.Location = new System.Drawing.Point(292, 66);
+            this.txtIdProd.Location = new System.Drawing.Point(559, 67);
             this.txtIdProd.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -200,7 +239,7 @@
             // 
             // txtIdCli
             // 
-            this.txtIdCli.Location = new System.Drawing.Point(89, 66);
+            this.txtIdCli.Location = new System.Drawing.Point(356, 67);
             this.txtIdCli.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -223,7 +262,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(202, 68);
+            this.label3.Location = new System.Drawing.Point(469, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 15);
             this.label3.TabIndex = 15;
@@ -232,7 +271,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 68);
+            this.label2.Location = new System.Drawing.Point(272, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 15);
             this.label2.TabIndex = 14;
@@ -355,5 +394,8 @@
         private NumericUpDown txtIdProd;
         private NumericUpDown txtIdCli;
         private Button btnGerarPdf;
+        private RadioButton rdCompra;
+        private Label label4;
+        private RadioButton rdVenda;
     }
 }
